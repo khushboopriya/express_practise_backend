@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const users = require('./users');
 const todos = require('./todos');
+const api = require('./api');
 
 // app.use(express.json);
 app.use(express.json());
@@ -14,6 +15,8 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+app.use('/api',api);
 
 app.use('/users',users);
 app.use('/todos',todos);
